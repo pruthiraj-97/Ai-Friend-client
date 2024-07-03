@@ -13,7 +13,8 @@ export default function NewChatCompo({id}) {
   const [ActivateButton,setActivateButton]=useState(true)
   const router=useRouter()
   useEffect(()=>{
-   async function createNewConversation(){
+   async function createNewConversation(){  
+       setActivateButton(false)
        const response=await fetch(`http://localhost:4000/api/conversation/getconversation/${id}`,{
           method:'GET',
           headers:{
@@ -30,6 +31,7 @@ export default function NewChatCompo({id}) {
         setConversation(data.conversation)
         setMessages(data.conversation.message)
        }
+       setActivateButton(true)
     }
     createNewConversation()
   },[])

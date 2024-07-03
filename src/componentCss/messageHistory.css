@@ -3,3 +3,6 @@
     border-bottom: 1px solid #eee;
     cursor: pointer;
 }
+.messagehistory:hover{
+    background-color: #ffeded;
+}

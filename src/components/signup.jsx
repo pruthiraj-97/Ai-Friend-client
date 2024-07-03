@@ -7,7 +7,7 @@ export default function SignupCompo() {
   const [username,setUsername]=useState('')
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
-  const [errors,setErrors]=useState('')
+  const [errors,setErrors]=useState(null)
   const [ActivateButton,setActivateButton]=useState(true)
   const [Backend_url,setBackend_url]=useState(process.env.BACKEND_URL)
   async function handleSubmit(e){
