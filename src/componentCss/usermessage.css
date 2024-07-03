@@ -1,0 +1,7 @@
+.usermessage-div{
+    display: flex;
+    justify-content: left;
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
