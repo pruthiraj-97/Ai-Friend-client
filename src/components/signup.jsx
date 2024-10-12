@@ -13,7 +13,7 @@ export default function SignupCompo() {
   async function handleSubmit(e){
     e.preventDefault()
     setActivateButton(false)
-    const response=await fetch(`http://localhost:4000/api/auth/signup`,{
+    const response=await fetch(`https://ai-friend-server.vercel.app/api/auth/signup`,{
         method:'POST',
         headers:{
             'Content-Type':'application/json'

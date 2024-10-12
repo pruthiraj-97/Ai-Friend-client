@@ -8,14 +8,13 @@ import HistoryCompo from './histrorycompo';
 export default function NewChatCompo({id}) {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
-  const [Backend_url,setBackend_url]=useState(process.env.BACKEND_URL)
   const [conversation,setConversation]=useState(null)
   const [ActivateButton,setActivateButton]=useState(true)
   const router=useRouter()
   useEffect(()=>{
    async function createNewConversation(){  
        setActivateButton(false)
-       const response=await fetch(`http://localhost:4000/api/conversation/getconversation/${id}`,{
+       const response=await fetch(`https://ai-friend-server.vercel.app/api/conversation/getconversation/${id}`,{
           method:'GET',
           headers:{
              'Content-Type':'application/json',
@@ -40,7 +39,7 @@ export default function NewChatCompo({id}) {
     e.preventDefault()
     setActivateButton(false)
     setMessage('')
-    const response=await fetch(`http://localhost:4000/api/conversation/addmessage/${conversation._id}`,{
+    const response=await fetch(`https://ai-friend-server.vercel.app/api/conversation/addmessage/${conversation._id}`,{
       method:'POST',
       headers:{
         'x-access-token':localStorage.getItem('token'),

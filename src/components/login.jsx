@@ -5,13 +5,11 @@ import '@/componentCss/login.css'; // Import the CSS file
 export default function LoginPage() {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
-  const [Backend_url,setBackend_url]=useState(process.env.BACKEND_URL)
   const [error,setError]=useState(null)
   const router=useRouter()
  async function handleSubmit(e){
     e.preventDefault()
-    console.log("Backend url is ",Backend_url)
-    const response=await fetch(`http://localhost:4000/api/auth/login`,{
+    const response=await fetch(`https://ai-friend-server.vercel.app/api/auth/login`,{
       method:'POST',
       headers:{
         'Content-Type':'application/json'
@@ -31,34 +29,43 @@ export default function LoginPage() {
     console.log(data)
   }
   return (
-    <div className="login-container">
+    <div className='login-container'>
+      <div className="login-container-box">
       {
         error && <p className="error-message">{error}</p>
       }
-      <h1>Login</h1>
+      <div className='login-box'>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit} className="login-form">
-        <label htmlFor="email">Email</label>
+       <p>
+       <label htmlFor="email">Email</label>
         <input
           type="email"
           id="email"
           name="email"
           value={email}
           onChange={(e)=>setEmail(e.target.value)}
+          placeholder='enter email'
           required
         />
+       </p>
 
-        <label htmlFor="password">Password</label>
+       <p>
+       <label htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
           name="password"
           value={password}
           onChange={(e)=>setPassword(e.target.value)}
+          placeholder='enter password'
           required
         />
-
-        <button type="submit">Login</button>
+       </p>
+       <button className='login-submit'>submit</button>
       </form>
+      </div>
+    </div>
     </div>
   );
 }

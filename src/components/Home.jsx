@@ -11,7 +11,7 @@ export default function HomeCompo() {
     console.log("creating")
     if(!ActivateButton) return
     setActivateButton(false)
-    const response=await fetch(`http://localhost:4000/api/conversation/createconversation`,{
+    const response=await fetch(`https://ai-friend-server.vercel.app/api/conversation/createconversation`,{
       method:'POST',
       headers:{
          'Content-Type':'application/json',
@@ -30,6 +30,7 @@ export default function HomeCompo() {
   }
   return (
     <div className="container">
+      <div className='home-page'>
       <h1 className="title">Welcome to Your AI Friend</h1>
       <p className="description">
         Connect with your AI friend for meaningful conversations, personalized advice, and much more. Click the button below to start chatting!
@@ -37,6 +38,7 @@ export default function HomeCompo() {
         <button className="chatButton"
           onClick={createNewChart}
         >Start Chatting</button>
+      </div>
     </div>
   );
 }
